@@ -5,7 +5,7 @@ import Home from './Home';
 function App() {
   return (
     <main>
-      <Home/>
+     <p>Created by Ei Shwe Sin Hlaing</p> <Home/>
     </main>
   );
 }
