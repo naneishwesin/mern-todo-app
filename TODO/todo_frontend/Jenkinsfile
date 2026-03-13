@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         DOCKER_USER = 'naneishwesinhlaing'
-        IMAGE_NAME = 'nanei'
+        IMAGE_NAME = 'todo-app'
         DOCKER_CREDS = 'docker-hub-credentials'
     }
 
@@ -24,17 +24,14 @@ pipeline {
 
         stage('Push') {
             steps {
-
                 withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDS}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
 
                     sh "echo \$PASS | docker login -u \$USER --password-stdin"
 
                     sh "docker push ${DOCKER_USER}/${IMAGE_NAME}:latest"
                 }
-
             }
         }
 
     }
-
-
+}
